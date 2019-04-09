@@ -1,0 +1,22 @@
+﻿{% extends "layout.html" %}
+
+    {% block main %}
+
+        <table id="table" class="table table-bordered" style="width:auto">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Bicycling Enthusiasm Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in reader %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% endblock %}

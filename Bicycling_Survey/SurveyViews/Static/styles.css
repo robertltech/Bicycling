@@ -1,0 +1,27 @@
+body
+{
+}
+#scal{
+    font-size:calc(1em + 1vw);
+}
+.rangl{
+    float:left;
+}
+.rangr{
+    float:right;
+}                                          
+.img-fluid{
+    width:100% \9;
+    height: auto;
+}                                   
+.bot{
+    font-size:50%;
+    bottom:0;
+}
+.position-absolute{
+    z-index:1;
+}
+.submit2{
+    margin-left:15px;
+    margin-right:15px;
+}

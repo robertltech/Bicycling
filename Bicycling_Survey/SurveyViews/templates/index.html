@@ -1,0 +1,68 @@
+﻿{% extends "layout.html" %}
+
+{% block main %}
+
+<form class="form-group" id="formact">
+    <label for="name">First Name or Preferred Nickname</label>
+    <input type="text" class="form-control" id="name" name="name" autofocus>
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">I love bicycling:</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+
+    <div class="form-group">
+        <label class="rangl" for="formControlRange">0</label><label class="rangr" for="formControlRange">10</label>
+        <input type="range" name="rang" class="custom-range" min="0" max="10" step="0.2" value="5" id="formControlRange">
+        <button class="btn btn-primary" id="submit1" type="button">Submit</button>
+    </div>
+    <div id="high" class="d-none">
+        <h2 align="center">Great!!!</h2>
+        <h3 align="center">We invite you to take our complete Bicycling Survey!</h3>
+        <div align="center">
+            <h3 class="d-inline">Are You Ready</h3>
+            <button type="submit" class="btn btn-lg btn-success d-inline submit2" style="color: black;">Yes!</button>
+        </div>
+
+    </div>
+    <div id="low" class="d-none">
+        <h2 align="center">Thanks for letting us know!</h2>
+        <div align="center">
+            <h3>Would you like to compare your selection with others</h3>
+            <button type="submit" class="btn btn-primary">Yes!</button>
+        </div>
+
+    </div>
+
+
+</form>
+
+
+
+<script>
+
+    document.querySelector(".btn").addEventListener('click', checkVal);
+    function checkVal() {
+        $("#formact").removeClass("d-none");
+        $("#submit1").remove();
+        let range = document.getElementById("formControlRange").value;
+        if (range >= 6) {
+            $("#high").removeClass("d-none");
+            $("#formact").attr({
+                action: "/sheet1",
+                enctype: "multipart/form-data",
+                method: "post"
+            });
+        }
+        else {
+            $("#low").removeClass("d-none");
+            $("#formact").attr({
+                action: "/sheet2",
+                enctype: "multipart/form-data",
+                method: "post"
+            });
+        }
+    }
+</script>
+
+{% endblock %}
